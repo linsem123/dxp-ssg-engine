@@ -34,3 +34,19 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Issues
+
+```sh
+
+## Error Type
+Runtime Error
+
+## Error Message
+Page "/blog/[slug]/page" is missing exported function "generateStaticParams()", which is required with "output: export" config.
+
+Next.js version: 15.5.4 (Turbopack)
+
+```
+
+This issue indicates that the page located at `/blog/[slug]/page` is missing the required `generateStaticParams()` function. This function is necessary when using the `output: "export"` configuration in Next.js, as it helps to define the dynamic routes that need to be statically generated at build time.
