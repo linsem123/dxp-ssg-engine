@@ -1,9 +1,12 @@
 'use client';
 
 import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { ClassicEditor } from '@ckeditor/ckeditor5-editor-classic';
 import { ButtonView } from '@ckeditor/ckeditor5-ui';
 import { useEffect, useRef, useState } from 'react';
+// import { Fullscreen } from '@ckeditor/ckeditor5-fullscreen';
+
+import 'ckeditor5/ckeditor5.css';
 
 class InsertDatePlugin {
   private editor: any;
@@ -44,6 +47,7 @@ export default function CKEditorWrapper({ value, onChange }: any) {
   const editorConfig = {
     toolbar: [
       'insertDate',
+      'fullscreen',
       'heading',
       'bold',
       'link',
@@ -56,8 +60,9 @@ export default function CKEditorWrapper({ value, onChange }: any) {
       'undo',
       'redo'
     ],
-    extraPlugins: [InsertDatePlugin],
-    licenseKey: '' // ← Add your key here
+    extraPlugins: [InsertDatePlugin, Fullscreen],
+    licenseKey:
+      'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NjMyNTExOTksImp0aSI6IjJkOTdhODlkLWY4NjgtNDMzZi1hMzc3LWJkOTA1MzMwNWY3MiIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiLCJzaCJdLCJ3aGl0ZUxhYmVsIjp0cnVlLCJsaWNlbnNlVHlwZSI6InRyaWFsIiwiZmVhdHVyZXMiOlsiKiJdLCJ2YyI6ImM2ZGMyODJmIn0.aERkiIjo5atudEEh2efiv6PxsNU09kwkRnah0DIfUBDvbkKtNmxlEovp6oK5V4qX7YUK7Chava_GmnX0zgYIBA' // ← Add your key here
   };
 
   useEffect(() => {
